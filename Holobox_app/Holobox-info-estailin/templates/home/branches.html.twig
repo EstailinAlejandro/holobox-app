@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="" href="#">
+                <img src="{{ asset('img/return.png') }}" alt="return" class="col-6 col-md-2 ms-5" alt="return">
+            </a>
+
+            <img src="{{ asset('img/logoroc.jpg') }}" alt="Logo" class="col-6 col-md-2 me-5" alt="rocmondriaan">
+        </div>
+    </nav>
+
+
+    <div class="container-fluid p-0">
+
+
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                {% for key, branche in branches %}
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ key }}" {% if loop.first %}class="active"{% endif %} aria-label="Slide {{ key + 1 }}"></button>
+                {% endfor %}
+            </div>
+
+            <div class="carousel-inner">
+                {% for key, branche in branches %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %} align-items-center" >
+                        <img src="{{ asset('img_branche/' ~ branche.img) }}" style="height:3000px"  class="" alt="...">
+                        <div class="carousel-caption" style="height: 20%">
+                            <h1 class="m-0" style="height: 50%; font-size:  150px">{{ branche.name }}</h1>
+                            <a href="{{ path('courses', {id:branche.id}) }}"><div class="btn btn-primary fs-1">Klik hier</div></a>
+                            <p></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                <span class="">Previous</span>
+            </button>
+            <button class="carousel-control-next " type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="">Next</span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+{% endblock %}

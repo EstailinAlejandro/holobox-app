@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class=""></div>
+    {% for file in files %}
+        <div class="card rounded-0" style="width: 18rem; border: none">
+            <video class="" controls>
+                <source src="uploads/{{ file.filename }}" type="video/mp4">
+
+                Your browser does not support the video tag.
+            </video>
+            <div class="card-body">
+                <h5 class="card-title">{{ file.name}}</h5>
+                <a href="#" class="btn btn-dark">Zie video</a>
+            </div>
+        </div>
+
+
+    {% endfor %}
+    </div>
+<div class="cta-image-block cta-image-block--color-blue" style="background: url('img/kapper.jpg&height=300');">
+
+    <div class="cta-image-block__content-wrapper ">
+        <div class="cta-image-block__content">
+            <h3 class="cta-image-block__title">Medewerker ICT support</h3>
+            <span class="cta-image-block__subtitle">Niveau 2, bol</span>
+            <a class="btn btn-dark text-start d-flex align-items-center" href="#">
+                <span class="ps-1 pe-3">Zie video <br> van opleiding</span>
+                <i class="bi bi-arrow-right-short ms-auto"></i></a>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <div class="card rounded-0 " style="width: 18rem; border: none; background-color: #5eb5e0 ">
+        <img class="card-img-top rounded-0" src="img/kapper.jpg" alt="">
+        <div class="card-body">
+            <h4 class="card-title">dssdasadsad</h4>
+            <p class="card-title">Niveau 2, bol</p>
+            <a class="btn btn-dark text-start d-flex s" href="#">
+                <span class="ps-1 ">Zie video <br> van opleiding</span>
+                <i class="bi bi-arrow-right-short ms-auto"></i></a>
+        </div>
+    </div>
+
+
+{% endblock %}

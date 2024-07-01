@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <nav class="navbar  ">
+        <div class="container-fluid">
+            <a class="" href="{{ path('branches')}}">
+                <img src="{{ asset('img/return.png') }}" alt="return" class="col-2 ms-2"        alt="return">
+            </a>
+
+            <img src="{{ asset('img/logoroc.jpg') }}" alt="Logo" class="col-2" alt="rocmondriaan">
+
+        </div>
+    </nav>
+
+
+    <div class="bg-danger">
+    <div style="background-color: ;" class="container-fluid pt-3 pb-3 ">
+
+            <h1 style="width: 100%" class=" bg-light text-center mb-0">{{ branch.name }}</h1>
+
+
+        <div class="row row-cols-3 align-items-center bg-light pt-3 g-0">
+            {% for course in branch.getCourses() %}
+                {% set videos = course.getVideos() %}
+                {% for video in videos %}
+
+                        <div class="card rounded-0 mb-3 me-3" style="width: 20%; border: none; background-color: #5eb5e0">
+                            <img class="card-img-top rounded-0" src="{{ asset('img_course/' ~ course.img) }}" alt="">
+
+                            <div class="card-body">
+                                <h4 class="card-title">{{ course.name }}</h4>
+                                <p class="card-title">{{ course.learning_path }}</p>
+                                <a class="text-decoration-none" href="{{ path('OnlyVideo', {'id': video.id}) }}">
+                                <button class="btn btn-dark text-start d-flex align-items-center">
+                                    <span class="ps-1 ">Zie video <br> van opleiding</span>
+                                    <i class="bi bi-arrow-right-short ms-auto ps-5"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+
+
+
+                {% endfor %}
+            {% endfor %}
+
+        </div>
+    </div>
+    </div>
+
+
+
+{% endblock %}
+

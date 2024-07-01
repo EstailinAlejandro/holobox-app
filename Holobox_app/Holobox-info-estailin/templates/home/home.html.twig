@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h2>holobox applicatie </h2>
+        </div>
+        <div class="container-fluid mt-5">
+            <div class="row g-4">
+
+
+                <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gebruikers</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">gebruikers scherm</h6>
+                        <p class="card-text">Frontend pagina bedoeld voor gasten die meer willen weten over een opleiding.</p>
+                        <a class="btn btn-primary" href="{{ path('branches') }}" role="button">Ga verder</a>
+                    </div>
+                </div>
+                </div>
+                <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Branche aanpassen/toevoegen <b>(BEHEER)</b></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">pas branche aan of voeg toe</h6>
+                        <p class="card-text">Klik hier om een branch opleiding toe te voegen of aan te passen.</p>
+                        <a class="btn btn-primary" href="{{ path('branche') }}" role="button">Ga verder</a>
+                    </div>
+                </div>
+                </div>
+                <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Video toevoegen/verwijderen <b>(BEHEER)</b></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">voeg video toe of verwijder</h6>
+                        <p class="card-text">voeg een video toe of pas aan om te laten zien op de holobox.</p>
+                        <a class="btn btn-primary" href="{{path('showVideos2')}} " role="button">Ga verder</a>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Opleiding aanpassen/toevoegen <b>(BEHEER)</b></h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">pas opleiding aan of voeg toe</h6>
+                            <p class="card-text">Klik hier om een opleiding toe te voegen of aan te passen en onder de.</p>
+                            <a class="btn btn-primary" href="{{ path('course') }}" role="button">Ga verder</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+</div>
+{% endblock %}

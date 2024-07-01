@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Delete{% endblock %}
+
+
+
+{% block body %}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+    <table class="table">
+    <thead>
+    <tr>
+        <th scope="col">name</th>
+        <th scope="col">opleiding</th>
+        <th scope="col">filename</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for file in files %}
+        <tr>
+            <td>{{ file.name }}</td>
+            <td>{% if file.course is not null %}{{ file.course.name }}{% else %} <p class="ps-5">-</p>{% endif %}</td>
+            <td>{{ file.filename }}</td>
+            <td><a href="{{ path('OnlyVideo', {'id': file.id}) }}"><button class="btn btn-warning">Zie video</button></a></td>
+            <td><a href="{{ path('delete', {'id': file.id}) }}" onclick="return confirm('Weet u zeker dat u <{{ file.name }}> wilt verwijderen?')"><button class="btn btn-danger">Verwijderen</button></a></td>
+        </tr>
+    {% endfor %}
+
+
+    </table>
+
+
+    <a  class="mt-5" href="{{ path('add-video') }}">voeg video toe</a><br>
+    <a  class="mt-5" href="{{ path('home') }}">terug naar home</a>
+
+
+{% endblock %}

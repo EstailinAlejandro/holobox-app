@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="" href="{{ path('courses', {'id': video.course.branch.id}) }}">
+                <img src="{{ asset('img/return.png') }}" alt="return" class="col-12 col-md-2 ms-2" alt="return">
+            </a>
+
+            <img src="{{ asset('img/logoroc.jpg') }}" alt="Logo" class="col-2" alt="rocmondriaan">
+        </div>
+    </nav>
+
+    <img src="{{ asset('img_course/' ~ video.course.img) }}" class="col-12" alt="">
+
+    <div class="container ">
+
+
+        <h1 class="text-center bg-warning mt-5 mb-5 pb-3 pt-3" >{{ video.course.name }}</h1>
+
+
+    <div class="row">
+        <video id="myVideo" class="col-6" controls style="height: px">
+            <source src="{{ asset('uploads/' ~ video.filename) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+
+        <div class="bg-primary col-6` " >
+            <p>
+                Niveau <br>
+                <b>Niveau {{ video.course.niveau }}</b> <br>
+
+                Duur <br>
+                <b>{{ video.course.durence }} jaar</b> <br>
+
+                Start <br>
+                <b>{{ video.course.start }}</b> <br>
+
+                Leerweg <br>
+                <b>{{ video.course.learning_path }}</b> <br>
+
+
+
+
+            </p>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <div class="fixe-bottom bg-danger">dsasds</div>
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('myVideo');
+
+            video.addEventListener('ended', function() {
+                // Wacht 5 seconden (5000 milliseconden) voordat je doorstuurt
+                setTimeout(function() {
+                    window.location.href = "{{ path('branches') }}";
+                }, 5000);
+            });
+        });
+    </script>
+{% endblock %}

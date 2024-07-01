@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}form{% endblock %}
+
+{% block body %}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+<body>
+<div class="container mt-5">
+
+
+    {{ form(form) }}
+
+
+
+<a href="{{ path('branches') }}">Kies de bestanden></a>
+<a href="{{ path('showVideos2') }}">Verwijder hier></a>
+
+
+</div>
+
+</body>
+
+
+{% endblock %}

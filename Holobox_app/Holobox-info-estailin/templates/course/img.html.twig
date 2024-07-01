@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="card rounded-0" style="border: none;">
+
+                <img src="{{ asset('img_course/' ~ courses.img) }}">
+
+
+            <div class="card-body">
+                <h5 class="card-title fs-2">id: {{ courses.id }}</h5>
+                <h5 class="card-title fs-3">name: {{ courses.name }}</h5>
+                <h5 class="card-title fs-3">img: {{ courses.img }}</h5>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

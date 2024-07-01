@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CourseController!{% endblock %}
+
+{% block body %}
+
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">name</th>
+            <th scope="col">leerweg</th>
+            <th scope="col">niveau</th>
+            <th scope="col">duur</th>
+            <th scope="col">start</th>
+            <th scope="col">branche</th>
+            <th scope="col">image</th>
+            <th scope="col">video name</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for course in courses %}
+            <tr>
+                <td>{{ course.name  }}</td>
+                <td>{{ course.learning_path  }}</td>
+                <td>{{ course.niveau  }}</td>
+                <td>{{ course.durence  }} jaar</td>
+                <td>{{ course.start  }}</td>
+                <td>{{ course.branch.name  }}</td>
+                <td>{{  course.img }}</td>
+                <td>{% if course.videos is not empty %}
+
+                        {% for video in course.videos %}
+                            {{ video.name }}
+                        {% endfor %}
+                    {% else %}
+                        <p class="ps-2">-</p>
+                    {% endif %}</td>
+
+
+
+                <td><a href="{{ path('OnlyCourse', {'id': course.id}) }} ">
+                        <button class="btn btn-warning">Zie afbeelding</button></a></td>
+                <td><a href="{{ path('course_delete', {'id': course.id}) }} "  onclick="return confirm('Weet u zeker dat u \<{{ course.name }}\> wilt verwijderen?')">
+                        <button class="btn btn-danger">Verwijderen</button></a></td>
+
+
+            </tr>
+        {% endfor %}
+    </table>
+
+    <a  class="mt-5" href="{{ path('add-course') }}">voeg opleiding toe</a><br>
+    <a  class="mt-5" href="{{ path('home') }}">terug naar home</a>
+
+{% endblock %}

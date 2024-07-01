@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Delete{% endblock %}
+
+
+
+{% block body %}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">name</th>
+            <th scope="col">image</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for branche in branches %}
+            <tr>
+                <td>{{ branche.name  }}</td>
+                <td>{{ branche.img }}</td>
+                <td><a href="{{ path('OnlyBranche', {'id': branche.id}) }} ">
+                        <button class="btn btn-warning">Zie afbeelding</button></a></td>
+                <td><a href="{{ path('branche_delete', {'id': branche.id}) }} "  onclick="return confirm('Weet u zeker dat u \< <b>{{ branche.name }} </b>\> wilt verwijderen?')">
+                        <button class="btn btn-danger">Verwijderen</button></a></td>
+
+
+            </tr>
+        {% endfor %}
+    </table>
+
+    <a  class="mt-5" href="{{ path('add-branche') }}">voeg branch toe</a><br>
+    <a  class="mt-5" href="{{ path('home') }}">terug naar home</a>
+
+
+
+{% endblock %}
